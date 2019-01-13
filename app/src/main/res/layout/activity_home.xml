@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/margin_page_top"
+    android:background="#FFFFFF"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/image_height"
+        android:src="@drawable/logo_amb"
+        android:layout_weight="2"
+        android:layout_gravity="center"
+        android:contentDescription="@string/privacy_statement"
+        android:scaleType="center"/>
+
+    <TextView
+        android:layout_width="@dimen/privacy_statement_width"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:layout_gravity="center"
+        android:textSize="@dimen/text_extra_large"
+        android:textStyle="bold"
+        android:layout_margin="@dimen/privacy_statement_margin"
+        android:text="@string/privacy_statement"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_weight="4"
+        android:layout_height="0dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_text"
+        android:textSize="@dimen/text_super_extra_large"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="@dimen/next_button_margin"
+        android:layout_marginRight="@dimen/next_button_margin"
+        android:layout_marginTop="@dimen/next_button_margin"
+        android:layout_marginBottom="@dimen/next_button_margin_bottom"
+        android:id="@+id/next_button"
+        />
+    </RelativeLayout>
+</LinearLayout>
