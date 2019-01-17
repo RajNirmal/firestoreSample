@@ -30,7 +30,6 @@ import java.util.Set;
 import nnr.app.search.com.searchapp2.Adapter.SymptomAdapter;
 import nnr.app.search.com.searchapp2.AppConstants;
 import nnr.app.search.com.searchapp2.DataModel.DiseaseDetails;
-import nnr.app.search.com.searchapp2.FragmentHolder;
 import nnr.app.search.com.searchapp2.R;
 
 public class SampleFragment extends Fragment {
@@ -88,9 +87,11 @@ public class SampleFragment extends Fragment {
                         String diseaseName = (String)document.get(AppConstants.DATA_DISEASE);
                         ArrayList<String> remedyData = (ArrayList<String>)document.get(AppConstants.DATA_REMEDY);
                         dataSet.add(new DiseaseDetails(diseaseName, symptomData,remedyData));
-                        for(String item : symptomData) {
-                            Log.i(AppConstants.APP_LOG_TAG, item);
-                            symptomList.add(item);
+                        if (!symptomData.isEmpty()) {
+                            for (String item : symptomData) {
+                                Log.i(AppConstants.APP_LOG_TAG, item);
+                                symptomList.add(item);
+                            }
                         }
                     }
                     adapter = new SymptomAdapter(dataSet);
@@ -109,7 +110,7 @@ public class SampleFragment extends Fragment {
         Set<String> autoCompleteSet = new HashSet<>(autoCompleteSuggestions);
         autoCompleteSuggestions.clear();
         autoCompleteSuggestions.addAll(autoCompleteSet);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>((FragmentHolder)getActivity(),android.R.layout.simple_dropdown_item_1line,autoCompleteSuggestions);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_dropdown_item_1line, autoCompleteSuggestions);
         autoCompleteTextView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
         autoCompleteTextView.setAdapter(adapter);
 
